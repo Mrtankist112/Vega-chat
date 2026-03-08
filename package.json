@@ -1,0 +1,53 @@
+{
+  "name": "vega-chat",
+  "version": "1.0.0",
+  "description": "Чат с AI-агентом V.E.G.A",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:portable": "electron-builder --win portable",
+    "publish": "electron-builder build --publish always"
+  },
+  "author": "V.E.G.A",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "electron-log": "^4.4.8",
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.vega.chat",
+    "productName": "V.E.G.A Chat",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!**/*.map",
+      "!**/*.test.js"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "V.E.G.A Chat"
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
+  }
+}
